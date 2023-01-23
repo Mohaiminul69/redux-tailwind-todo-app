@@ -12,7 +12,17 @@ const TodoList = () => {
 
   const handlePageChange = (page) => setCurrentPage(page);
 
-  const todos = paginate(todoList, currentPage, pageSize);
+  const sortType = useSelector((state) => state.filters.sortType);
+
+  let todos;
+  if (sortType === "all") todos = todoList;
+  else {
+    todos = todoList.filter(
+      (todo) => todo.completed === (sortType === "done" ? true : false)
+    );
+  }
+
+  const sortedTodos = paginate(todos, currentPage, pageSize);
 
   return (
     <>
@@ -41,7 +51,7 @@ const TodoList = () => {
             </tr>
           </thead>
           <tbody>
-            {todos
+            {sortedTodos
               .filter((todo) =>
                 todo?.title.toLowerCase().includes(searchText.toLowerCase())
               )
@@ -52,7 +62,7 @@ const TodoList = () => {
         </table>
       </div>
       <Pagination
-        itemsCount={todoList.length}
+        itemsCount={todos.length}
         pageSize={pageSize}
         onPageChange={handlePageChange}
         currentPage={currentPage}

@@ -19,3 +19,8 @@ export const searchTextAction = (txt) => ({
   type: actions.searchText,
   payload: txt,
 });
+
+export const sortTodoAction = (txt) => ({
+  type: actions.sortTodo,
+  payload: txt,
+});

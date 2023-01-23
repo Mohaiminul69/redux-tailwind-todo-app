@@ -4,6 +4,7 @@ export const initialState = {
   all: [],
   searched: [],
   searchText: "",
+  sortType: "all",
   pending: [],
   done: [],
 };
@@ -16,8 +17,8 @@ const filterReducer = (state = initialState, action) => {
         pending: [...state.pending, action.payload],
       };
 
-    case actions.toggleDone:
-      return {};
+    case actions.sortTodo:
+      return { ...state, sortType: action.payload };
 
     case actions.searchList:
       return { ...state, searchList: action.payload };

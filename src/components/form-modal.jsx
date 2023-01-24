@@ -8,13 +8,14 @@ export default function Example({ open, setOpen }) {
   const cancelButtonRef = useRef(null);
   const dispatch = useDispatch();
   const taskList = useSelector((state) => state.todos.todos);
+  const taskInput = useRef(null);
 
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
-        initialFocus={cancelButtonRef}
+        initialFocus={taskInput}
         onClose={setOpen}
       >
         <Transition.Child
@@ -94,6 +95,7 @@ export default function Example({ open, setOpen }) {
                               {({ input, meta }) => (
                                 <input
                                   type="text"
+                                  ref={taskInput}
                                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                   placeholder="Take lunch"
                                   required

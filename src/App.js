@@ -17,25 +17,27 @@ function App() {
   }, [dispatch, searchText]);
 
   return (
-    <div className="container mx-auto">
+    <>
       <Navbar />
-      <div className="flex mt-10 mb-3 relative items-center justify-center">
-        <Sort />
-        <h1 className="text-center text-white text-2xl font-semibold">
-          Redux Todo App
-        </h1>
-        <button
-          onClick={() => setOpen(true)}
-          className="rounded-lg bg-blue-500 px-4 py-2 absolute right-0 text-white"
-        >
-          Add Task
-        </button>
+      <div className="container mx-auto">
+        <div className="flex mt-10 mb-3 relative items-center justify-center">
+          <Sort />
+          <h1 className="text-center text-white text-2xl font-semibold">
+            Redux Todo App
+          </h1>
+          <button
+            onClick={() => setOpen(true)}
+            className="rounded-lg bg-blue-500 px-4 py-2 absolute right-0 text-white"
+          >
+            Add Task
+          </button>
+        </div>
+        <div className="container flex flex-wrap items-center justify-between mx-auto">
+          <TodoList />
+        </div>
+        <FormModal open={open} setOpen={setOpen} />
       </div>
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <TodoList />
-      </div>
-      <FormModal open={open} setOpen={setOpen} />
-    </div>
+    </>
   );
 }
 

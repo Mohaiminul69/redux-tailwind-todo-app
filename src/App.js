@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Toaster } from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import FormModal from "./components/form-modal";
 import Navbar from "./components/navbar";
 import Sort from "./components/sort";
@@ -35,6 +36,7 @@ function App() {
         </div>
         <FormModal open={open} setOpen={setOpen} />
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 }

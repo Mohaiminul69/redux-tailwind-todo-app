@@ -55,8 +55,8 @@ const TodoList = () => {
               .filter((todo) =>
                 todo?.title.toLowerCase().includes(searchText.toLowerCase())
               )
-              .map((todo) => (
-                <TodoItem key={todo.id} todo={todo} lastId={todoList.length} />
+              .map((todo, i) => (
+                <TodoItem key={todo.id} todo={todo} serialNo={i + 1} />
               ))}
           </tbody>
         </table>

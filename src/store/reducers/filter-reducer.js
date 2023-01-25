@@ -5,8 +5,6 @@ export const initialState = {
   searched: [],
   searchText: "",
   sortType: "all",
-  pending: [],
-  done: [],
 };
 
 const filterReducer = (state = initialState, action) => {

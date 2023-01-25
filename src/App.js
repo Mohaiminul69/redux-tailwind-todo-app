@@ -9,12 +9,10 @@ import { fetchTodosData } from "./store/thunk/todos/fetch-todos";
 function App() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const searchText = useSelector((state) => state.filters.searchText);
 
   useEffect(() => {
-    if (searchText) console.log("sajkdhaksjdhajksdhajksdhiou");
-    else dispatch(fetchTodosData());
-  }, [dispatch, searchText]);
+    dispatch(fetchTodosData());
+  }, [dispatch]);
 
   return (
     <>

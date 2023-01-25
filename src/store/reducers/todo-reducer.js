@@ -15,7 +15,15 @@ const todoReducer = (state = initialState, action) => {
     case actions.addTodo:
       return {
         ...state,
-        todos: [...state.todos, action.payload],
+        todos: [action.payload, ...state.todos],
+      };
+
+    case actions.resolveTodo:
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id ? (todo = action.payload) : todo
+        ),
       };
 
     case actions.removeTodo:

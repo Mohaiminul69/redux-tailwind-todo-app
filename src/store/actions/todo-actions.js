@@ -10,6 +10,11 @@ export const addTodoAction = (data) => ({
   payload: data,
 });
 
+export const resolveTodoAction = (data) => ({
+  type: actions.resolveTodo,
+  payload: data,
+});
+
 export const deleteTodoAction = (id) => ({
   type: actions.removeTodo,
   payload: id,

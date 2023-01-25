@@ -3,6 +3,7 @@ import {
   addTodoAction,
   deleteTodoAction,
   fetchTodosAction,
+  resolveTodoAction,
 } from "../../actions/todo-actions";
 
 export const fetchTodosData = () => async (dispatch) => {
@@ -18,6 +19,14 @@ export const addTodoData = (data) => async (dispatch) => {
     data
   );
   if (res.status === 201) dispatch(addTodoAction(data));
+};
+
+export const resolveTodoData = (data) => async (dispatch) => {
+  const res = await axios.patch(
+    `https://jsonplaceholder.typicode.com/todos/${data.id}`,
+    data
+  );
+  if (res.status === 200) dispatch(resolveTodoAction(data));
 };
 
 export const deleteTodosData = (id) => async (dispatch) => {

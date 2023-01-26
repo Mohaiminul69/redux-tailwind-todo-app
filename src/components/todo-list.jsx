@@ -46,6 +46,12 @@ const TodoList = () => {
                 scope="col"
                 className="px-6 py-4 text-base bg-gray-200 dark:bg-gray-800"
               >
+                Created
+              </th>
+              <th
+                scope="col"
+                className="px-6 py-4 text-base bg-gray-200 dark:bg-gray-800"
+              >
                 status
               </th>
               <th

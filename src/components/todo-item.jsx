@@ -45,8 +45,11 @@ const TodoItem = ({ todo, serialNo }) => {
               />
             </form>
           ) : (
-            todo?.title.substring(0, 40)
+            todo?.title.substring(0, 28)
           )}
+        </td>
+        <td className="px-6 py-2 capitalize border-x-[0.5px] border-gray-600 bg-gray-200 dark:bg-gray-800">
+          {todo?.createdAt}
         </td>
         <td className="px-6 py-2 capitalize bg-gray-200 dark:bg-gray-800">
           {todo?.completed ? "Done" : "Pending"}

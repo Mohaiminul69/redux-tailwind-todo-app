@@ -5,6 +5,7 @@ import {
   deleteTodoAction,
   fetchTodosAction,
   resolveTodoAction,
+  setLoadingAction,
 } from "../../actions/todo-actions";
 
 export const fetchTodosData = () => async (dispatch) => {
@@ -15,12 +16,15 @@ export const fetchTodosData = () => async (dispatch) => {
 };
 
 export const addTodoData = (data) => async (dispatch) => {
+  dispatch(setLoadingAction(true));
   const res = await axios.post(
     "https://jsonplaceholder.typicode.com/todos",
     data
   );
 
   if (res.status === 201) {
+    dispatch(setLoadingAction(false));
+    dispatch(addTodoAction(data));
     toast.success("Task added Successfully!", {
       icon: "👏",
       style: {
@@ -29,16 +33,18 @@ export const addTodoData = (data) => async (dispatch) => {
         color: "#fff",
       },
     });
-    dispatch(addTodoAction(data));
   }
 };
 
 export const resolveTodoData = (data) => async (dispatch) => {
+  dispatch(setLoadingAction(true));
   const res = await axios.patch(
     `https://jsonplaceholder.typicode.com/todos/${data.id}`,
     data
   );
   if (res.status === 200) {
+    dispatch(setLoadingAction(false));
+    dispatch(resolveTodoAction(data));
     toast.success("Status changed Successfully!", {
       icon: "👏",
       style: {
@@ -47,15 +53,17 @@ export const resolveTodoData = (data) => async (dispatch) => {
         color: "#fff",
       },
     });
-    dispatch(resolveTodoAction(data));
   }
 };
 
 export const deleteTodosData = (id) => async (dispatch) => {
+  dispatch(setLoadingAction(true));
   const data = await axios.delete(
     `https://jsonplaceholder.typicode.com/todos/${id}`
   );
   if (data.status === 200) {
+    dispatch(setLoadingAction(false));
+    dispatch(deleteTodoAction(id));
     toast("Task has been Deleted!", {
       icon: "👏",
       style: {
@@ -64,6 +72,5 @@ export const deleteTodosData = (id) => async (dispatch) => {
         color: "#fff",
       },
     });
-    dispatch(deleteTodoAction(id));
   }
 };

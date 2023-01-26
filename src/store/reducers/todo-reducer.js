@@ -2,6 +2,7 @@ import * as actions from "../actionTypes/actionTypes";
 
 const initialState = {
   todos: [],
+  loading: false,
 };
 
 const todoReducer = (state = initialState, action) => {
@@ -16,6 +17,12 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: [action.payload, ...state.todos],
+      };
+
+    case actions.setLoading:
+      return {
+        ...state,
+        loading: action.payload,
       };
 
     case actions.resolveTodo:

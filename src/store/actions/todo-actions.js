@@ -5,6 +5,11 @@ export const fetchTodosAction = (data) => ({
   payload: data,
 });
 
+export const setLoadingAction = (loadState) => ({
+  type: actions.setLoading,
+  payload: loadState,
+});
+
 export const addTodoAction = (data) => ({
   type: actions.addTodo,
   payload: data,

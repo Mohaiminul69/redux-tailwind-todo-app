@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FormModal from "./components/form-modal";
+import LoadingSpinner from "./components/loading-spinner";
 import Navbar from "./components/navbar";
 import Sort from "./components/sort";
 import TodoList from "./components/todo-list";
@@ -10,6 +11,7 @@ import { fetchTodosData } from "./store/thunk/todos/fetch-todos";
 function App() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.todos.loading);
 
   useEffect(() => {
     dispatch(fetchTodosData());
@@ -18,7 +20,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto">
+      <div className="container mx-auto relative">
         <div className="flex mt-10 mb-3 relative items-center justify-center">
           <Sort />
           <h1 className="text-center text-white text-2xl font-semibold">
@@ -35,6 +37,7 @@ function App() {
           <TodoList />
         </div>
         <FormModal open={open} setOpen={setOpen} />
+        {loading && <LoadingSpinner />}
       </div>
       <Toaster position="top-center" reverseOrder={false} />
     </>

@@ -26,7 +26,7 @@ const TodoItem = ({ todo, serialNo }) => {
 
   return (
     <>
-      <tr className="border-b border-gray-300 dark:border-gray-700">
+      <tr className="border-b border-gray-300 dark:border-gray-700 dark:bg-gray-600">
         <th
           scope="row"
           className="pl-6 py-2 font-medium whitespace-nowrap bg-gray-200 dark:bg-gray-800"
@@ -48,11 +48,14 @@ const TodoItem = ({ todo, serialNo }) => {
             todo?.title.substring(0, 28)
           )}
         </td>
-        <td className="px-6 py-2 capitalize border-x-[0.5px] border-gray-600 bg-gray-200 dark:bg-gray-800">
+        <td className="text-[#267191] px-6 py-2 capitalize border-x-[0.5px] border-gray-600 bg-gray-200 dark:bg-gray-800">
           {todo?.createdAt}
         </td>
         <td className="px-6 py-2 capitalize bg-gray-200 dark:bg-gray-800">
           {todo?.completed ? "Done" : "Pending"}
+          <span className="text-[8px] block text-[#267191]">
+            {todo?.completedAt}
+          </span>
         </td>
         <td className="px-6 py-2 bg-gray-50 dark:bg-gray-600 flex items-center justify-between">
           <label className="relative inline-block items-center cursor-pointer">

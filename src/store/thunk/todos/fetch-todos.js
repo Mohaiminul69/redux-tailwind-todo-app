@@ -60,7 +60,7 @@ export const editTodoData = (data) => async (dispatch) => {
 
 export const resolveTodoData = (data) => async (dispatch) => {
   dispatch(setLoadingAction(true));
-  data.createdAt = format(new Date(), "dd-MM-yyyy");
+  data.completedAt = format(new Date(), "dd-MM-yyyy");
   const res = await axios.patch(
     `https://jsonplaceholder.typicode.com/todos/${data.id}`,
     data

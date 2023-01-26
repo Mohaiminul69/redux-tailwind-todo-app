@@ -32,20 +32,26 @@ const TodoList = () => {
             <tr className="text-red-400 border-red-400 border-b-[1px]">
               <th
                 scope="col"
-                className="pl-6 py-4 text-base bg-gray-50 dark:bg-gray-800"
+                className="pl-6 py-4 text-base bg-gray-200 dark:bg-gray-800"
               >
                 No
               </th>
-              <th scope="col" className="px-6 py-4 text-base bg-gray-800">
+              <th
+                scope="col"
+                className="px-6 py-4 text-base bg-gray-200 dark:bg-gray-800"
+              >
                 Task
               </th>
               <th
                 scope="col"
-                className="px-6 py-4 text-base bg-gray-50 dark:bg-gray-800"
+                className="px-6 py-4 text-base bg-gray-200 dark:bg-gray-800"
               >
                 status
               </th>
-              <th scope="col" className="px-6 py-4 text-base bg-gray-800">
+              <th
+                scope="col"
+                className="px-6 py-4 text-base bg-gray-200 dark:bg-gray-800"
+              >
                 action
               </th>
             </tr>

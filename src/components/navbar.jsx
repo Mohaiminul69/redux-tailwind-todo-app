@@ -2,11 +2,11 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { searchTextAction } from "../store/actions/todo-actions";
 
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   const dispatch = useDispatch();
   return (
-    <nav className="bg-white sticky top-0 z-10 border-gray-200 px-2 w-full sm:px-4 py-2.5 rounded dark:bg-gray-900">
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
+    <nav className="bg-gray-300 sticky top-0 z-10 border-gray-200 px-2 w-full sm:px-4 py-2.5 rounded dark:bg-gray-900">
+      <div className="container flex items-center justify-between mx-auto">
         <a href="https://flowbite.com/" className="flex items-center">
           <img
             src="https://flowbite.com/docs/images/logo.svg"
@@ -17,7 +17,7 @@ const Navbar = () => {
             Redux Todo App
           </span>
         </a>
-        <div className="flex md:order-2">
+        <div className="flex">
           <button
             type="button"
             data-collapse-toggle="navbar-search"
@@ -88,61 +88,17 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
-        <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-          id="navbar-search"
-        >
-          <div className="relative mt-3 md:hidden">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg
-                className="w-5 h-5 text-gray-500"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <input
-              type="text"
-              id="search-navbar"
-              className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search..."
-            />
-          </div>
-          {/* <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                aria-current="page"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Services
-              </a>
-            </li>
-          </ul> */}
-        </div>
+        <label className="relative items-center cursor-pointer flex justify-center">
+          <input
+            onChange={() => setDarkMode(!darkMode)}
+            type="checkbox"
+            className="sr-only peer"
+          />
+          <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-blue-300 dark:peer-focus:ring-red-400 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-red-400" />
+          <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+            Toggle Darkmode
+          </span>
+        </label>
       </div>
     </nav>
   );

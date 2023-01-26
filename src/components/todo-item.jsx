@@ -26,7 +26,7 @@ const TodoItem = ({ todo, serialNo }) => {
 
   return (
     <>
-      <tr className="border-b border-gray-200 dark:border-gray-700">
+      <tr className="border-b border-gray-300 dark:border-gray-700">
         <th
           scope="row"
           className="pl-6 py-2 font-medium whitespace-nowrap bg-gray-200 dark:bg-gray-800"

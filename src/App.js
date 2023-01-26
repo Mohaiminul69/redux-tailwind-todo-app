@@ -30,7 +30,7 @@ function App() {
             </h1>
             <button
               onClick={() => setOpen(true)}
-              className="rounded-lg bg-blue-500 px-4 py-2 absolute right-0 text-white"
+              className="rounded-lg bg-[#267191] px-4 py-2 absolute right-0 text-white"
             >
               Add Task
             </button>

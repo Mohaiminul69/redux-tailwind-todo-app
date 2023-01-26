@@ -43,7 +43,7 @@ export default function Example({ open, setOpen }) {
             >
               <div className="relative w-full h-full max-w-md md:h-auto">
                 {/* Modal content */}
-                <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div className="relative bg-gray-700 rounded-lg shadow dark:bg-gray-700">
                   <button
                     type="button"
                     ref={cancelButtonRef}
@@ -67,7 +67,7 @@ export default function Example({ open, setOpen }) {
                     <span className="sr-only">Close modal</span>
                   </button>
                   <div className="px-6 py-6 lg:px-8">
-                    <h3 className="mb-4 text-center text-xl font-medium text-gray-900 dark:text-white">
+                    <h3 className="mb-4 text-center text-xl font-medium text-white dark:text-white">
                       Assign a task for you
                     </h3>
                     <Form
@@ -87,7 +87,7 @@ export default function Example({ open, setOpen }) {
                           <div>
                             <label
                               htmlFor="task"
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                              className="block mb-2 text-sm font-medium text-white dark:text-white"
                             >
                               Task
                             </label>

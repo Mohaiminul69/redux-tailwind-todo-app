@@ -19,6 +19,14 @@ const todoReducer = (state = initialState, action) => {
         todos: [action.payload, ...state.todos],
       };
 
+    case actions.editTodo:
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload.id ? (todo = action.payload) : todo
+        ),
+      };
+
     case actions.setLoading:
       return {
         ...state,

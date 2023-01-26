@@ -29,7 +29,7 @@ const TodoList = () => {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-8 w-full mb-4">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
-            <tr className="text-red-400 border-red-400 border-b-[1px]">
+            <tr className="text-[#267191] dark:text-red-400 border-[#267191] dark:border-red-400 border-b-[1px]">
               <th
                 scope="col"
                 className="pl-6 py-4 text-base bg-gray-200 dark:bg-gray-800"

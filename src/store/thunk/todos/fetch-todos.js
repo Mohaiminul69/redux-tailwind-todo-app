@@ -36,6 +36,26 @@ export const addTodoData = (data) => async (dispatch) => {
   }
 };
 
+export const editTodoData = (data) => async (dispatch) => {
+  dispatch(setLoadingAction(true));
+  const res = await axios.patch(
+    `https://jsonplaceholder.typicode.com/todos/${data.id}`,
+    data
+  );
+  if (res.status === 200) {
+    dispatch(setLoadingAction(false));
+    dispatch(resolveTodoAction(data));
+    toast.success("Title changed Successfully!", {
+      icon: "👏",
+      style: {
+        borderRadius: "5px",
+        background: "#d06d6d",
+        color: "#fff",
+      },
+    });
+  }
+};
+
 export const resolveTodoData = (data) => async (dispatch) => {
   dispatch(setLoadingAction(true));
   const res = await axios.patch(

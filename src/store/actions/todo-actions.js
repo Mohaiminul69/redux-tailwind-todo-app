@@ -15,6 +15,11 @@ export const addTodoAction = (data) => ({
   payload: data,
 });
 
+export const editTodoAction = (data) => ({
+  type: actions.editTodo,
+  payload: data,
+});
+
 export const resolveTodoAction = (data) => ({
   type: actions.resolveTodo,
   payload: data,

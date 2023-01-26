@@ -1,4 +1,5 @@
 export const addTodo = "ADD_TODO";
+export const editTodo = "EDIT_TODO";
 export const removeTodo = "REMOVE_TODO";
 export const fetchTodos = "FETCH_TODOS";
 export const resolveTodo = "RESOLVE_TODO";

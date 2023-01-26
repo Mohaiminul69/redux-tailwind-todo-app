@@ -39,9 +39,9 @@ function App() {
             <TodoList />
           </div>
           <FormModal open={open} setOpen={setOpen} />
-          {loading && <LoadingSpinner />}
         </div>
         <Toaster position="top-center" reverseOrder={false} />
+        {loading && <LoadingSpinner />}
       </div>
     </div>
   );

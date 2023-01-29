@@ -12,7 +12,7 @@ function App() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.todos.loading);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     dispatch(fetchTodosData());

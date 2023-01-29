@@ -1,25 +1,13 @@
-import { Fragment, useRef } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Field, Form } from "react-final-form";
-import { useDispatch, useSelector } from "react-redux";
-import { addTodoData } from "../store/thunk/todos/fetch-todos";
 
 export default function LoadingSpinner() {
   const open = true;
   const setOpen = () => {};
-  const cancelButtonRef = useRef(null);
-  const dispatch = useDispatch();
-  const taskList = useSelector((state) => state.todos.todos);
-  const taskInput = useRef(null);
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog
-        as="div"
-        className="relative z-10"
-        initialFocus={taskInput}
-        onClose={setOpen}
-      >
+      <Dialog as="div" className="relative z-10" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

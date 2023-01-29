@@ -9,7 +9,7 @@ const Sort = () => {
 
   const dispatch = useDispatch();
 
-  const chooseFilter = (refId) => {
+  const toggleFilter = (refId) => {
     refAll.current.checked = false;
     refPending.current.checked = false;
     refDone.current.checked = false;
@@ -34,7 +34,7 @@ const Sort = () => {
               defaultValue
               className="hidden peer"
               required
-              onClick={() => chooseFilter("all")}
+              onClick={() => toggleFilter("all")}
             />
             <label
               htmlFor="all"
@@ -50,7 +50,7 @@ const Sort = () => {
               id="pending"
               defaultValue
               className="hidden peer"
-              onClick={() => chooseFilter("pending")}
+              onClick={() => toggleFilter("pending")}
             />
             <label
               htmlFor="pending"
@@ -66,7 +66,7 @@ const Sort = () => {
               id="done"
               defaultValue
               className="hidden peer"
-              onClick={() => chooseFilter("done")}
+              onClick={() => toggleFilter("done")}
             />
             <label
               htmlFor="done"

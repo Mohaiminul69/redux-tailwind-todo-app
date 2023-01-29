@@ -10,8 +10,10 @@ const TodoList = () => {
   const todoList = useSelector((state) => state.todos.todos);
   const searchText = useSelector((state) => state.filters.searchText);
 
+  //* Handling Pagination
   const handlePageChange = (page) => setCurrentPage(page);
 
+  //* Handling Sorting
   const sortType = useSelector((state) => state.filters.sortType);
 
   let todos;
